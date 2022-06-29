@@ -2,14 +2,6 @@ import './App.css';
 import React, { useEffect, useState, useRef } from 'react';
 
 const { IVSPlayer } = window;
-console.log(IVSPlayer)
-
-// const {
-//   create: createMediaPlayer,
-//   isPlayerSupported,
-//   PlayerEventType,
-//   PlayerState
-// } = IVSPlayer;
 
 function App() {
 
@@ -21,7 +13,6 @@ function App() {
 
 
   const getLiveStream = () => {
-    console.log('in get live stream')
     playerRef.current.load(playbackUrl);
     playerRef.current.play();
     setPlaybackURL("")
