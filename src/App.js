@@ -21,7 +21,9 @@ function App() {
 
 
   const getLiveStream = () => {
+    console.log('in get live stream')
     playerRef.current.load(playbackUrl);
+    playerRef.current.play();
     setPlaybackURL("")
   }
 
@@ -30,8 +32,8 @@ function App() {
     if (IVSPlayer.isPlayerSupported) {
       playerRef.current = IVSPlayer.create();
       playerRef.current.attachHTMLVideoElement(videoRef.current);
-      playerRef.current.load(playbackUrl);
-      playerRef.current.play();
+      // playerRef.current.load(playbackUrl);
+      // playerRef.current.play();
     }
   })
 
@@ -42,11 +44,12 @@ function App() {
         <h3>playback URL</h3>
         <div className="inputs">
           <input 
-            onChange={(e) => setPlaybackURL(e.target.value)} 
+            onChange={(e) => setPlaybackURL(e.target.value)}
+            value={playbackUrl} 
             style={{width: '100%', height: '40px'}}/>
-          <button onClick={getLiveStream}>Load</button>
+          <button onClick={getLiveStream} > Load</button>
         </div>
-        <video ref={videoRef} />
+        <video className="video" ref={videoRef} />
       </header>
     </div>
   );

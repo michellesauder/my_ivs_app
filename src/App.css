@@ -5,6 +5,14 @@
   display: flex
 }
 
+.video {
+  width: 50rem;
+  height: auto;
+  object-fit: contain;
+  border: aqua solid 4px;
+  margin-top: 3vh;
+}
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;
